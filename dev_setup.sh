@@ -1,10 +1,8 @@
 #!/bin/sh
 
-# GUI mac app installation
-brew install visual-studio-code iterm2 --cask
+# GUI mac app installation & Command line or non-GUI application installation
 
-# Command line or non-GUI application installation
-brew install openssl z fzf exa heroku redis postgresql
+brew bundle
 
 if [ ! -d $HOME/.nvm ]; then
   fancy_echo "NVM not found, installing"
