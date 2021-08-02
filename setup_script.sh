@@ -70,3 +70,19 @@ read $dev
 if [ $dev = "y" ]; then
   . ./dev_setup.sh
 fi
+<<<<<<< HEAD
+=======
+
+source ~/.rvm/scripts/rvm
+rvm -v
+if [ $? != 0 ]; then
+  fancy_echo "Installing ruby 3.0.0"
+  rvm reload
+  rvm install 3.0.0
+else
+  fancy_echo "After this script, start a new shell session to initialize rvm and run the following command"
+  fancy_echo "rvm install 3.0.0"
+fi
+
+npm install -g yarn create-react-app
+>>>>>>> 87bc5b3ae77ee01ac995f9d365b00307bd65c007
