@@ -52,6 +52,8 @@ brew install google-chrome slack rectangle 1password spotify figma alfred --cask
 if [ ! -f ./setup_script.sh ]; then
   git clone https://github.com/madeintandem/SetupScript.git $HOME/tandem_setup_script
   IS_CLONED="true"
+else
+  IS_CLONED="false"
 fi
 
 ###############################
