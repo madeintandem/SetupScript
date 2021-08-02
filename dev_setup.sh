@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # GUI mac app installation
 brew install visual-studio-code iterm2 --cask
 
@@ -21,14 +23,14 @@ else
 fi
 
 source ~/.rvm/scripts/rvm
-rvm -v
+rvm -v 1> /dev/null
 if [ $? != 0 ]; then
+  fancy_echo "After this script, start a new shell session to initialize rvm and run the following command"
+  fancy_echo "rvm install 3.0.0 && gem install bundler rubocop reek solargraph rails"
+else
   fancy_echo "Installing ruby 3.0.0"
   rvm reload
   rvm install 3.0.0
-else
-  fancy_echo "After this script, start a new shell session to initialize rvm and run the following command"
-  fancy_echo "rvm install 3.0.0 && gem install bundler rubocop reek solargraph rails"
 fi
 
 fancy_echo "Installing common npm packages"

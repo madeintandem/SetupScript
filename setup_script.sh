@@ -49,17 +49,22 @@ fi
 
 brew install google-chrome slack rectangle 1password spotify figma alfred --cask
 
-git clone https://github.com/madeintandem/SetupScript.git $HOME/tandem_setup_script
+if [ ! -f ./setup_script.sh ]; then
+  git clone https://github.com/madeintandem/SetupScript.git $HOME/tandem_setup_script
+  IS_CLONED="true"
+fi
 
 ###############################
 #   Design-specific tooling   #
 ###############################
 #
 fancy_echo "Do you want to install Design tools?  y / n"
-read $design
+read design
 
-if [ $design = "y" ]; then
+if [ "$design" = "y" ] && [ "$IS_CLONED" = "true" ]; then
   . $HOME/tandem_setup_script/design_setup.sh
+elif [ "$design" = "y" ]; then
+  . ./design_setup.sh
 fi
 
 ############################
@@ -67,8 +72,15 @@ fi
 ############################
 #
 fancy_echo "Do you want to install Development tools? y / n"
-read $dev
+read dev
 
-if [ $dev = "y" ]; then
+if [ "$dev" = "y" ] && [ "$IS_CLONED" = "true" ]; then
+  . $HOME/tandem_setup_script/dev_setup.sh
+elif [ "$dev" = "y" ]; then
   . ./dev_setup.sh
+fi
+
+# clean up after yourself!
+if [ "$IS_CLONED" = "true" ]; then
+  rm -rf $HOME/tandem_setup_script
 fi
