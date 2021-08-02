@@ -1,3 +1,5 @@
+#/bin/sh
+
 # thanks to thoughtbot laptop script
 fancy_echo() {
   local fmt="$1"; shift
