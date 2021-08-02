@@ -1,11 +1,6 @@
 #!/bin/sh
 
-# TODO - Remove because moved brew installations to Brewfile
-# GUI mac app installation
-# brew install visual-studio-code iterm2 --cask
-
-# Command line or non-GUI application installation
-# brew install openssl z fzf exa heroku redis postgresql
+# GUI mac app installation & Command line or non-GUI application installation
 
 brew bundle
 
@@ -37,4 +32,4 @@ else
 fi
 
 fancy_echo "Installing common npm packages"
-npm install -g yarn create-react-app prettier javascript-typescript-langserver babel eslint 
+npm install -g yarn create-react-app prettier javascript-typescript-langserver babel eslint
