@@ -1,10 +1,13 @@
 #!/bin/sh
 
+# TODO - Remove because moved brew installations to Brewfile
 # GUI mac app installation
-brew install visual-studio-code iterm2 --cask
+# brew install visual-studio-code iterm2 --cask
 
 # Command line or non-GUI application installation
-brew install openssl z fzf exa heroku redis postgresql
+# brew install openssl z fzf exa heroku redis postgresql
+
+brew bundle
 
 if [ ! -d $HOME/.nvm ]; then
   fancy_echo "NVM not found, installing"
@@ -34,4 +37,4 @@ else
 fi
 
 fancy_echo "Installing common npm packages"
-npm install -g yarn create-react-app prettier javascript-typescript-langserver babel eslint
+npm install -g yarn create-react-app prettier javascript-typescript-langserver babel eslint 

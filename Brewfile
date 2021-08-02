@@ -1,0 +1,10 @@
+tap "heroku/brew" 
+brew "openssl"
+brew "z"
+brew "fzf"
+brew "exa"
+brew "redis"
+brew "postgresql"
+
+cask "visual-studio-code"
+cask "iterm2" 
