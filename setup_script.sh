@@ -82,6 +82,22 @@ elif [ "$dev" = "y" ]; then
   . ./dev_setup.sh
 fi
 
+#############################
+#   Useful macOS settings   #
+#############################
+# Some settings and configuration of macOS are not accessible
+# through the UI. Included here are some useful settings that
+# can be opted into.
+
+fancy_echo "Would you like to set up some macOS configuration? y / n"
+read macos
+
+if [ "$macos" = "y" ] && [ "$IS_CLONED" = "true" ]; then
+  . $HOME/tandem_setup_script/macos_settings.sh
+elif [ "$macos" = "y" ]; then
+  . ./macos_settings.sh
+fi
+
 # clean up after yourself!
 if [ "$IS_CLONED" = "true" ]; then
   rm -rf $HOME/tandem_setup_script

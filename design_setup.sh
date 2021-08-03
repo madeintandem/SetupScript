@@ -1,3 +1,5 @@
 #!/bin/sh
 
-brew install adobe-creative-cloud --cask
+brew bundle --file=- <<-EOS
+cask "adobe-creative-cloud"
+EOS
