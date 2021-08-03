@@ -97,4 +97,11 @@ script!
 
 ### macOS settings configuration
 
-something about settings
+Many macOS settings are not available through the UI, and many of the default
+settings aren't chosen with professionals in mind. The script will interactively
+take you through a series of questions related to these more esoteric macOS
+settings (like always showing a file extension in Finder).
+
+There is an option to say `yes` once and not get the settings interactively, but
+we would advise you read through `macos_settings.sh` to understand what you're
+getting yourself into before choosing that option.
