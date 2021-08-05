@@ -89,11 +89,6 @@ script!
   * install latest long term support version of node
 * npm packages:
   * yarn
-  * create-react-app
-  * prettier
-  * javascript-typescript-langserver
-  * babel
-  * eslint
 
 ### macOS settings configuration
 

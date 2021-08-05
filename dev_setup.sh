@@ -31,5 +31,6 @@ else
   rvm install 3.0.0
 fi
 
-fancy_echo "Installing common npm packages"
-npm install -g yarn create-react-app prettier javascript-typescript-langserver babel eslint
+
+fancy_echo "Installing yarn"
+npm install -g yarn
