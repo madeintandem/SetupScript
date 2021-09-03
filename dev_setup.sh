@@ -4,15 +4,6 @@
 
 brew bundle
 
-if [ ! -d $HOME/.nvm ]; then
-  fancy_echo "NVM not found, installing"
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-else
-  fancy_echo "NVM found, continuing"
-fi
-
-nvim install latest
-
 if [ ! -d $HOME/.rvm ]; then
   fancy_echo "RVM not found, installing"
   \curl -sSL https://get.rvm.io | bash -s stable
@@ -31,6 +22,16 @@ else
   rvm install 3.0.0
 fi
 
+# installing rvm will create shell profiles if they do not exist
+if [ ! -d $HOME/.nvm ]; then
+  fancy_echo "NVM not found, installing"
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | zsh
+  source ~/.zshrc
+else
+  fancy_echo "NVM found, continuing"
+fi
+
+nvm install --lts
 
 fancy_echo "Installing yarn"
 npm install -g yarn

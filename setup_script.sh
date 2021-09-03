@@ -40,7 +40,7 @@ fi
 #
 if [ ! -f /usr/local/bin/brew ]; then
   fancy_echo "Homebrew not found.. installing Homebrew"
-  /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
   fancy_echo "Homebrew detected"
   fancy_echo "Updating brew"
