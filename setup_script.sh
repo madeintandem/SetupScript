@@ -47,7 +47,61 @@ else
   brew update
 fi
 
-brew install google-chrome slack rectangle 1password spotify figma alfred --cask
+if [ ! -d /Applications/"Google Chrome.app" ]; then
+  fancy_echo "Google Chrome not found.. installing Google Chrome"
+  brew install --cask google-chrome
+else
+  fancy_echo "Google Chrome detected"
+  fancy_echo "Skipping Google Chrome..."
+fi
+
+if [ ! -d /Applications/Slack.app ]; then
+  fancy_echo "Slack not found.. installing Slack"
+  brew install --cask slack
+else
+  fancy_echo "Slack detected"
+  fancy_echo "Skipping Slack..."
+fi
+
+if [ ! -d /Applications/Rectangle.app ]; then
+  fancy_echo "Rectangle not found.. installing Rectangle"
+  brew install --cask rectangle
+else
+  fancy_echo "Rectangle detected"
+  fancy_echo "Skipping Rectangle..."
+fi
+
+if [ ! -d /Applications/'1Password 7.app' ]; then
+  fancy_echo "1password not found.. installing 1password"
+  brew install --cask 1password
+else
+  fancy_echo "1password detected"
+  fancy_echo "Skipping 1password..."
+fi
+
+if [ ! -d /Applications/'Spotify.app' ]; then
+  fancy_echo "Spotify not found.. installing Spotify"
+  brew install --cask spotify
+else
+  fancy_echo "Spotify detected"
+  fancy_echo "Skipping Spotify..."
+fi
+
+if [ ! -d /Applications/'Figma.app' ]; then
+  fancy_echo "Figma not found.. installing Figma"
+  brew install --cask figma
+else
+  fancy_echo "Figma detected"
+  fancy_echo "Skipping Figma..."
+fi
+
+if [ ! -d /Applications/'Alfred 4.app' ]; then
+  fancy_echo "Alfred not found.. installing Alfred"
+  brew install --cask alfred
+else
+  fancy_echo "Alfred detected"
+  fancy_echo "Skipping Alfred..."
+fi
 
 if [ ! -f ./setup_script.sh ]; then
   git clone https://github.com/madeintandem/SetupScript.git $HOME/tandem_setup_script
