@@ -38,13 +38,36 @@ fi
 # Why do we install it for everyone?
 #   It's the program that much more of this script relies on
 #
-if [ ! -f /usr/local/bin/brew ]; then
+# set expected Homebrew install dir by processor architecture
+case $(arch) in
+  'arm64')
+    BREW_DIR=/opt/homebrew/bin
+    ;;
+  'x86_64')
+    BREW_DIR=/usr/local/bin
+    ;;
+  *)
+    unset BREW_DIR
+    ;;
+esac
+
+if ! [[ -z "$BREW_DIR" ]] && ! [[ -f $BREW_DIR/brew ]]; then
   fancy_echo "Homebrew not found.. installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-else
+  if [[ $BREW_DIR == /opt/homebrew/bin ]]; then
+    echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    fancy_echo "brew added to PATH"
+  fi
+  brew -v
+elif ! [[ -z "$BREW_DIR" ]] && [[ $(which brew) == $BREW_DIR/brew ]]; then
   fancy_echo "Homebrew detected"
   fancy_echo "Updating brew"
   brew update
+  brew -v
+else
+  fancy_echo "No action taken for Homebrew; path did not match CPU architecture"
 fi
 
 if [ ! -d /Applications/"Google Chrome.app" ]; then
