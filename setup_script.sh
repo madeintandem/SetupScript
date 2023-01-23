@@ -105,13 +105,13 @@ else
     fancy_echo "1password detected"
     fancy_echo "Skipping 1password..."
   fi
-
-  if [ ! -d /Applications/'Spotify.app' ]; then
-    fancy_echo "Spotify not found.. installing Spotify"
-    brew install --cask spotify
-  else
+    
+  if [[ -d /Applications/'Spotify.app' ]] || [[ -d "$HOME/Applications/Chrome Apps.localized/Spotify.app" ]]; then
     fancy_echo "Spotify detected"
     fancy_echo "Skipping Spotify..."
+  else
+    fancy_echo "Spotify not found.. installing Spotify"
+    brew install --cask spotify
   fi
 
   if [ ! -d /Applications/'Figma.app' ]; then
